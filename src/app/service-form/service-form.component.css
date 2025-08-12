@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 300px;
+  margin: auto;
+}
+
+/* form.component.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+mat-card {
+  width: 400px;
+  padding: 20px;
+}
+.full-width {
+  width: 100%;
+}
