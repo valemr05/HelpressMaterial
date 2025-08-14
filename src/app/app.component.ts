@@ -22,9 +22,9 @@ import { HeaderComponent } from './header/header.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     //ServiceFormComponent,
-    HeaderComponent
-
-  ],
+    HeaderComponent,
+    ServiceFormComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
