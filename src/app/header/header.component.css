@@ -1,0 +1,32 @@
+.logo {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar button {
+  margin-left: 8px; /* separación entre botones */
+background-color: orange;
+transition: background-color 0.3s ease;
+}
+
+/* Botón redondeado y estilizado */
+.btn-redondo {
+  border-radius: 5px;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-weight: 500;
+   background-color: orange;
+}
+
+mat-toolbar button:hover {
+  background-color: #fac370; /* naranja más claro */
+}

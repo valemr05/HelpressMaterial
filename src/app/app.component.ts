@@ -8,7 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormComponent } from './service-form/service-form.component';
-
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,8 @@ import { ServiceFormComponent } from './service-form/service-form.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    ServiceFormComponent
+    //ServiceFormComponent,
+    HeaderComponent
 
   ],
   templateUrl: './app.component.html',
