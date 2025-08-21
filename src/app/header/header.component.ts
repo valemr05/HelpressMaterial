@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: 'app-header',

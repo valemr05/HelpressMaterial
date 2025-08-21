@@ -9,7 +9,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormComponent } from './service-form/service-form.component';
 import { HeaderComponent } from './header/header.component';
-
+import { LoginComponent } from "./login/login.component";
+import { AppRoutingModule } from './app.routes';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,7 +25,9 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     //ServiceFormComponent,
     HeaderComponent,
-    ServiceFormComponent
+    LoginComponent,
+    AppRoutingModule,
+    RouterModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -32,5 +36,10 @@ import { HeaderComponent } from './header/header.component';
 
 export class AppComponent {
   title = 'HelpressMaterial';
+  mostrar = false;
+
+    toggleComponente() {
+    this.mostrar = !this.mostrar;
+  }
 }
 
