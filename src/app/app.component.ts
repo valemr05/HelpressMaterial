@@ -10,8 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormComponent } from './service-form/service-form.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from "./login/login.component";
-import { AppRoutingModule } from './app.routes';
-import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,9 +23,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     //ServiceFormComponent,
     HeaderComponent,
-    LoginComponent,
-    AppRoutingModule,
-    RouterModule
+    
+    RouterOutlet
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
