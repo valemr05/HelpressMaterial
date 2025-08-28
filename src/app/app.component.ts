@@ -9,7 +9,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormComponent } from './service-form/service-form.component';
 import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from "./login/login.component";
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,7 +22,6 @@ import { LoginComponent } from "./login/login.component";
     ReactiveFormsModule,
     //ServiceFormComponent,
     HeaderComponent,
-    
     RouterOutlet
 ],
   templateUrl: './app.component.html',

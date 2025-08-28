@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LoginComponent } from "../login/login.component";
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule],
+  imports: [
+    RouterModule,      // 👈 Necesario para routerLink
+    MatToolbarModule,  // Para <mat-toolbar>
+    MatButtonModule    // Para <button mat-button>
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'] // Ojo, es styleUrls en plural
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}
