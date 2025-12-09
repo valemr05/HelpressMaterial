@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-hero',
   standalone: true,
   imports: [
     CommonModule,
@@ -16,13 +16,22 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatMenuModule
   ],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './hero.component.html',
+  styleUrls: ['./hero.component.scss']
 })
-export class HeaderComponent {
+export class HeroComponent {
   menuItems = [
     { label: 'Services', route: '/services' },
     { label: 'About Us', route: '/about' },
     { label: 'Contact', route: '/contact' }
   ];
+  onFindPro(): void {
+    console.log('Find a Pro clicked');
+    // Aquí iría la navegación o lógica
+  }
+
+  onContactSupport(): void {
+    console.log('Contact Support clicked');
+    // Aquí iría la navegación o lógica
+  }  
 }

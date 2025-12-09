@@ -1,8 +1,8 @@
 // home.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '../../header/header.component';
-import { HeaderComponent } from '../../hero/hero.component';
+import { HeaderComponent } from '../../header/header.component';
+import { HeroComponent } from '../../hero/hero.component';
 import { ServicesComponent } from '../../services/services.component';
 import { FooterComponent } from '../../footer/footer.component';
 

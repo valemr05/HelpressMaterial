@@ -1,0 +1,91 @@
+// Importar tema precompilado temporalmente
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// ====================================
+// VARIABLES CSS PERSONALIZADAS
+// ====================================
+:root {
+  --primary-color: #e54d2e;
+  --secondary-color: #0f303f;
+  --accent-green: #2a5948;
+  --accent-green-light: #b7d6c8;
+  --accent-yellow: #f4b740;
+  --background-light: #f8f5f2;
+}
+
+// ====================================
+// ESTILOS GLOBALES
+// ====================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: var(--background-light);
+  margin: 0;
+  color: #1f2937;
+}
+
+// ====================================
+// SOBRESCRIBIR COLORES DE MATERIAL
+// ====================================
+
+// Forzar color primario en botones
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-protected-button-container-color: var(--primary-color) !important;
+  --mdc-protected-button-label-text-color: white !important;
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.mat-mdc-raised-button.mat-primary:hover,
+.mat-mdc-unelevated-button.mat-primary:hover {
+  opacity: 0.9 !important;
+}
+
+// Botones outlined
+.mat-mdc-outlined-button {
+  --mdc-outlined-button-label-text-color: var(--secondary-color) !important;
+  --mdc-outlined-button-outline-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
+}
+
+.mat-mdc-outlined-button:hover {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+// Toolbar
+.mat-toolbar {
+  padding: 0 !important;
+  background-color: var(--background-light) !important;
+  color: var(--secondary-color) !important;
+}
+
+// Cards
+.mat-mdc-card {
+  background-color: var(--background-light) !important;
+}
+
+// Forzar fuente en todos los componentes de Material
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-toolbar,
+.mat-mdc-card {
+  font-family: 'Montserrat', sans-serif !important;
+}
