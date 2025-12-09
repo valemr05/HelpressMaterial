@@ -1,16 +1,51 @@
-<mat-toolbar color="primary" class="toolbar">
-  <div class="logo-container">
-    <img src="logo.png" alt="Logo" class="logo">
-    <span class="title">HELPRESS</span>
+
+<mat-toolbar class="header-toolbar">
+  <div class="toolbar-content">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <img 
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLG8zv4JSahYNB7DEqNWdN2nhLg9QtcXFqn9DcGEBnYMyZgbU3ClFWYAXW537LyWTWRB5NFq6SYgJL-KAUerV8e7bpCsi7MIluOCA6-l2nYDWfCp3vuWOBpQDRFBSMrGH0bdh2dnwEiUQl5ij56JVp4i4PPuwlCdqhL94MX01XZCwi6G4CrtBAb9MHBM1psl4ftrtXDfrY8VBQkDBE0xQbeS2qkRcDaLkdiYW0YfvlbPn1LPEpVqcld34TP027cYs9dqrcBGPo5As"
+        alt="Helpress Logo"
+        class="logo-image"
+      />
+      <span class="logo-text">HELPRESS</span>
+    </div>
+
+    <!-- Navigation Menu (Desktop) -->
+    <nav class="nav-menu">
+      <a 
+        *ngFor="let item of menuItems"
+        [routerLink]="item.route"
+        mat-button
+        class="nav-link"
+      >
+        {{ item.label }}
+      </a>
+    </nav>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button mat-stroked-button class="login-btn">
+        Login
+      </button>
+      <button mat-raised-button color="primary" class="signup-btn">
+        Sign Up
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button mat-icon-button class="mobile-menu-btn" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
-  
-  <span class="spacer"></span>
-  
-  <button mat-button class="btn-redondo">Inicio</button>
-  <button mat-button class="btn-redondo">Servicios</button>
-  <button mat-button class="btn-redondo" routerLink="/login">Iniciar sesión</button>
-  <button mat-stroked-button color="accent" class="btn-redondo">Registrarse</button>
-  <button mat-raised-button color="warn" class="btn-redondo">Soy técnico</button>
-  <button mat-raised-button color="warn" class="btn-redondo">Contactanos</button>
 </mat-toolbar>
 
+<!-- Mobile Menu -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let item of menuItems">
+    {{ item.label }}
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>Login</button>
+  <button mat-menu-item>Sign Up</button>
+</mat-menu>

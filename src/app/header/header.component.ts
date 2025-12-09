@@ -1,17 +1,29 @@
+// hero.component.ts
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-hero',
   standalone: true,
   imports: [
-    RouterModule,      // 👈 Necesario para routerLink
-    MatToolbarModule,  // Para <mat-toolbar>
-    MatButtonModule    // Para <button mat-button>
+    CommonModule,
+    MatButtonModule,
+    MatIconModule
   ],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'] // Ojo, es styleUrls en plural
+  
+  templateUrl: '../hero.component.html',
+  styleUrls: ['../hero.component.scss']
 })
-export class HeaderComponent {}
+export class HeroComponent {
+  onFindPro(): void {
+    console.log('Find a Pro clicked');
+    // Aquí iría la navegación o lógica
+  }
+
+  onContactSupport(): void {
+    console.log('Contact Support clicked');
+    // Aquí iría la navegación o lógica
+  }
+}

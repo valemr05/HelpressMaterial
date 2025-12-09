@@ -1,15 +1,10 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ServiceFormComponent } from './service-form/service-form.component';
 
 export const routes: Routes = [
- { path: '', component: ServiceFormComponent }, 
+ { path: '', component: HomeComponent }, 
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'service-form',
-    component: ServiceFormComponent
+    path: '**', redirectTo: ''
   }
 ];

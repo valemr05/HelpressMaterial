@@ -1,0 +1,39 @@
+
+<section class="services-section">
+  <div class="services-container">
+    <!-- Header -->
+    <div class="services-header">
+      <h2 class="services-title">Our Services</h2>
+      <p class="services-subtitle">
+        We cover a wide range of services to keep your home in perfect condition.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      <mat-card 
+        *ngFor="let service of services" 
+        class="service-card"
+      >
+        <mat-card-content>
+          <!-- Icon Container -->
+          <div 
+            class="icon-container" 
+            [style.background-color]="service.bgColor"
+          >
+            <mat-icon 
+              class="service-icon"
+              [style.color]="service.iconColor"
+            >
+              {{ service.icon }}
+            </mat-icon>
+          </div>
+
+          <!-- Service Info -->
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

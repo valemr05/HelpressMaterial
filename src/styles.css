@@ -1,4 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Define tu paleta personalizada
+$helpress-primary: (
+  50: #fce8e6,
+  100: #f7c6c0,
+  200: #f2a096,
+  300: #ed7a6c,
+  400: #e95e4d,
+  500: #e54d2e,
+  600: #e24629,
+  700: #de3d23,
+  800: #da341d,
+  900: #d32512,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$helpress-accent: (
+  50: #e3eae8,
+  100: #b9cbc5,
+  200: #8ba99e,
+  300: #5d8677,
+  400: #3a6c5a,
+  500: #2a5948,
+  600: #244e40,
+  700: #1d4337,
+  800: #17382f,
+  900: #0e2620,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+// Crear el tema
+$helpress-primary-palette: mat.define-palette($helpress-primary, 500);
+$helpress-accent-palette: mat.define-palette($helpress-accent, 500);
+$helpress-warn-palette: mat.define-palette(mat.$red-palette);
+
+$helpress-theme: mat.define-light-theme((
+  color: (
+    primary: $helpress-primary-palette,
+    accent: $helpress-accent-palette,
+    warn: $helpress-warn-palette,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Montserrat, sans-serif',
+  ),
+));
+
+@include mat.all-component-themes($helpress-theme);
+
+// Estilos globales
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f5f2;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #e54d2e;
+  --secondary-color: #0f303f;
+  --accent-green: #2a5948;
+  --accent-green-light: #b7d6c8;
+  --accent-yellow: #f4b740;
+  --background-light: #f8f5f2;
+}
