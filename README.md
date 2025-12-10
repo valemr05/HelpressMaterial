@@ -1,15 +1,12 @@
 # 🏡 Helpress
 
 Helpress es una plataforma digital que conecta a usuarios con operarios calificados para servicios de mantenimiento y reparación del hogar. Nuestro objetivo es ofrecer soluciones rápidas, seguras y accesibles a través de una aplicación moderna e intuitiva.
----
 
 ## 🎯 Misión
 Brindar soluciones confiables, rápidas y accesibles para el mantenimiento y reparación del hogar, conectando a nuestros clientes con operarios calificados mediante una aplicación intuitiva. En Helpress trabajamos con personal de confianza, precios justos y programas de fidelización, comprometidos siempre con mejorar la calidad de vida de nuestros usuarios en cada lugar donde estamos presentes.
----
 
 ## 🌎 Visión
 Ser la plataforma líder en servicios de mantenimiento del hogar en América Latina, reconocida por su innovación, confianza y compromiso con la satisfacción del cliente. Aspiramos a expandir nuestra cobertura para llegar a todos los rincones del mapa, garantizando que cada hogar, sin importar su ubicación, tenga acceso a soluciones rápidas, seguras y de calidad.
----
 
 ## 🚀 Características principales
 
@@ -19,7 +16,6 @@ Ser la plataforma líder en servicios de mantenimiento del hogar en América Lat
 - Gestión de servicios y soporte
 - Interfaz moderna y responsive
 
----
 
 ## 🛠️ Tecnologías utilizadas
 
