@@ -1,27 +1,45 @@
-# HelpressMaterial
+# 🏡 Helpress
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+Helpress es una plataforma digital que conecta a usuarios con operarios calificados para servicios de mantenimiento y reparación del hogar. Nuestro objetivo es ofrecer soluciones rápidas, seguras y accesibles a través de una aplicación moderna e intuitiva.
 
-## Development server
+## 🎯 Misión
+Brindar soluciones confiables, rápidas y accesibles para el mantenimiento y reparación del hogar, conectando a nuestros clientes con operarios calificados mediante una aplicación intuitiva. En Helpress trabajamos con personal de confianza, precios justos y programas de fidelización, comprometidos siempre con mejorar la calidad de vida de nuestros usuarios en cada lugar donde estamos presentes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🌎 Visión
+Ser la plataforma líder en servicios de mantenimiento del hogar en América Latina, reconocida por su innovación, confianza y compromiso con la satisfacción del cliente. Aspiramos a expandir nuestra cobertura para llegar a todos los rincones del mapa, garantizando que cada hogar, sin importar su ubicación, tenga acceso a soluciones rápidas, seguras y de calidad.
 
-## Code scaffolding
+## 🚀 Características principales
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Registro de usuarios y operarios
+- Acceso a servicios técnicos del hogar
+- Evaluación y reputación de operarios
+- Gestión de servicios y soporte
+- Interfaz moderna y responsive
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tecnologías utilizadas
 
-## Running unit tests
+### Frontend
+- Angular 18
+- TypeScript
+- HTML / CSS
+- Angular Material
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Backend
+*(Por definir)*
 
-## Running end-to-end tests
+### Base de datos
+*(Por definir)*
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
+## ⚙️ Instalación (modo desarrollo)
 
-## Further help
+```bash
+# Clonar el repositorio
+git clone https://github.com/valemr05/HelpressMaterial.git
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Instalar dependencias
+npm install
+
+# Ejecutar en local
+ng serve
