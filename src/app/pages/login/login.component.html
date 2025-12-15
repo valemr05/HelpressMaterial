@@ -1,63 +1,106 @@
 <div class="login-container">
-  <!-- Header Section -->
+  <!-- Header -->
   <header class="login-header">
     <div class="header-content">
-      <a href="#" class="logo-section">
-        <!-- Reemplaza con tu imagen de logo, por ejemplo: -->
-        <img src="HelpressMaterial\public\logo.png" alt="LogoH" class="logo-image" />
-        <span class="logo-text">Helpress</span>
+      <a routerLink="/" class="logo-section">
+        <img 
+          src="logo.png"
+          alt="Helpress Logo"
+          class="logo-image"
+        />
+        <span class="logo-text">HELPRESS</span>
       </a>
+
       <div class="header-actions">
-        <span class="signup-prompt">¿No tienes una cuenta?</span>
-        <button mat-stroked-button class="signup-btn">
+        <span class="signup-prompt">Don't have an account?</span>
+        <a routerLink="/signup" mat-stroked-button class="signup-btn">
           Sign Up
-        </button>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Section -->
+  <!-- Main Content -->
   <main class="login-main">
     <div class="login-content">
-      
+      <!-- Title Section -->
       <div class="login-title-section">
-        <h1 class="login-title">Login to your account</h1>
-        <p class="login-subtitle">Or <a href="#" class="forgot-link">start your free trial</a></p>
+        <h1 class="login-title">Welcome Back</h1>
+        <p class="login-subtitle">
+          Sign in to manage your services and bookings.
+        </p>
       </div>
 
+      <!-- Login Form Card -->
       <div class="login-card">
-        <form class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
           
-          <!-- Campo de Email/Usuario -->
-          <!-- Usa el componente mat-form-field de Angular Material -->
+          <!-- Email Field -->
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Dirección de correo electrónico</mat-label>
-            <input matInput type="email" required>
+            <mat-label>Username or Email</mat-label>
+            <input 
+              matInput 
+              type="email" 
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+            />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+              Please enter a valid email
+            </mat-error>
           </mat-form-field>
 
-          <!-- Campo de Contraseña -->
+          <!-- Password Field -->
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Contraseña</mat-label>
-            <input matInput type="password" required>
+            <mat-label>Password</mat-label>
+            <input 
+              matInput 
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+            <button 
+              mat-icon-button 
+              matSuffix 
+              type="button"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="'Hide password'"
+            >
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+              Password must be at least 6 characters
+            </mat-error>
           </mat-form-field>
 
-          <!-- Opciones (Recordarme y Olvidó contraseña) -->
+          <!-- Remember Me & Forgot Password -->
           <div class="form-options">
-            <mat-checkbox class="remember-checkbox">
-              Recordarme
+            <mat-checkbox formControlName="rememberMe" class="remember-checkbox">
+              Remember me
             </mat-checkbox>
-            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+            <a routerLink="/forgot-password" class="forgot-link">
+              Forgot your password?
+            </a>
           </div>
 
-          <!-- Botón de Inicio de Sesión -->
-          <!-- Usa el componente mat-button o mat-raised-button de Angular Material -->
-          <button mat-raised-button color="primary" type="submit" class="submit-btn">
-            Iniciar sesión
+          <!-- Submit Button -->
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            class="submit-btn"
+          >
+            Login
           </button>
-
         </form>
       </div>
     </div>
   </main>
-  <app-footer></app-footer>
 </div>

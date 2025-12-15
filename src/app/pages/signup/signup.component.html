@@ -1,0 +1,155 @@
+<div class="signup-container">
+  <!-- Header -->
+  <header class="signup-header">
+    <div class="header-content">
+      <a routerLink="/" class="logo-section">
+        <img 
+          src="logo.png"
+          alt="Helpress Logo"
+          class="logo-image"
+        />
+        <span class="logo-text">HELPRESS</span>
+      </a>
+
+      <div class="header-actions">
+        <span class="login-prompt">Already have an account?</span>
+        <a routerLink="/login" mat-stroked-button class="login-btn">
+          Login
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="signup-main">
+    <div class="signup-content">
+      <!-- Title Section -->
+      <div class="signup-title-section">
+        <h1 class="signup-title">Create Your Account</h1>
+        <p class="signup-subtitle">
+          Join Helpress to connect with trusted professionals.
+        </p>
+      </div>
+
+      <!-- Signup Form Card -->
+      <div class="signup-card">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+          
+          <!-- Full Name Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Full Name</mat-label>
+            <input 
+              matInput 
+              type="text" 
+              formControlName="fullName"
+              placeholder="John Doe"
+              autocomplete="name"
+            />
+            <mat-error *ngIf="signupForm.get('fullName')?.hasError('required')">
+              Full name is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('fullName')?.hasError('minlength')">
+              Name must be at least 3 characters
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Email Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input 
+              matInput 
+              type="email" 
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+            />
+            <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input 
+              matInput 
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+              placeholder="At least 6 characters"
+              autocomplete="new-password"
+            />
+            <button 
+              mat-icon-button 
+              matSuffix 
+              type="button"
+              (click)="togglePasswordVisibility()"
+            >
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+              Password must be at least 6 characters
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input 
+              matInput 
+              [type]="hideConfirmPassword ? 'password' : 'text'"
+              formControlName="confirmPassword"
+              placeholder="Re-enter your password"
+              autocomplete="new-password"
+            />
+            <button 
+              mat-icon-button 
+              matSuffix 
+              type="button"
+              (click)="toggleConfirmPasswordVisibility()"
+            >
+              <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+              Please confirm your password
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('passwordMismatch')">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Terms & Conditions -->
+          <div class="terms-section">
+            <mat-checkbox formControlName="acceptTerms" class="terms-checkbox">
+              I agree to the 
+              <a href="#" class="terms-link">Terms of Service</a> 
+              and 
+              <a href="#" class="terms-link">Privacy Policy</a>
+            </mat-checkbox>
+            <mat-error 
+              *ngIf="signupForm.get('acceptTerms')?.touched && signupForm.get('acceptTerms')?.hasError('required')"
+              class="terms-error"
+            >
+              You must accept the terms and conditions
+            </mat-error>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            class="submit-btn"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

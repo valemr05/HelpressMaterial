@@ -1,0 +1,231 @@
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-light);
+}
+
+.signup-header {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+
+  @media (min-width: 640px) {
+    padding: 1rem 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 1rem 2rem;
+  }
+}
+
+.header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  
+  .logo-image {
+    height: 2.5rem;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-prompt {
+  color: #6b7280;
+  display: none;
+  
+  @media (min-width: 640px) {
+    display: inline;
+  }
+}
+
+.login-btn {
+  border-color: var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+  }
+}
+
+.signup-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  
+  @media (min-width: 640px) {
+    padding: 3rem 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 3rem 2rem;
+  }
+}
+
+.signup-content {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.signup-title-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signup-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+.signup-subtitle {
+  color: #6b7280;
+  margin: 0;
+}
+
+.signup-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+::ng-deep {
+  .signup-form {
+    .mat-mdc-form-field {
+      margin-bottom: 0;
+    }
+    
+    .mat-mdc-input-element {
+      color: #1f2937;
+    }
+    
+    .mat-mdc-floating-label {
+      color: #6b7280 !important;
+    }
+    
+    .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+      color: var(--primary-color) !important;
+    }
+    
+    .mat-mdc-text-field-wrapper {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #d1d5db !important;
+      }
+    }
+    
+    .mat-mdc-form-field.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--primary-color) !important;
+        border-width: 2px !important;
+      }
+    }
+    
+    .mat-mdc-form-field.mat-form-field-invalid {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #ef4444 !important;
+      }
+    }
+  }
+}
+
+.terms-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.terms-checkbox {
+  ::ng-deep {
+    .mdc-checkbox__background {
+      border-color: #d1d5db !important;
+    }
+    
+    .mdc-checkbox--selected .mdc-checkbox__background {
+      background-color: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+    }
+    
+    .mdc-label {
+      color: #1f2937;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+.terms-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.terms-error {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  height: 48px;
+  margin-top: 0.5rem;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
