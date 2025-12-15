@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    FooterComponent
   ],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
