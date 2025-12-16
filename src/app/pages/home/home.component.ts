@@ -16,26 +16,7 @@ import { FooterComponent } from '../../footer/footer.component';
     ServicesComponent,
     FooterComponent
   ],
-  template: `
-    <div class="home-container">
-      <app-header></app-header>
-      <main>
-        <app-hero></app-hero>
-        <app-services></app-services>
-      </main>
-      <app-footer></app-footer>
-    </div>
-  `,
-  styles: [`
-    .home-container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    main {
-      flex-grow: 1;
-    }
-  `]
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {}
