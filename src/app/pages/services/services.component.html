@@ -1,0 +1,154 @@
+<!-- services.component.html -->
+<div class="services-page">
+  <app-header></app-header>
+
+  <main class="services-main">
+    <!-- Hero Section -->
+    <section class="services-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Our Services</h1>
+        <p class="hero-subtitle">
+          Find trusted professionals for all your home maintenance and improvement needs
+        </p>
+      </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="search-section">
+      <div class="search-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search services...</mat-label>
+            <input 
+              matInput 
+              [(ngModel)]="searchQuery"
+              (ngModelChange)="onSearchChange()"
+              placeholder="e.g., plumbing, electrical, cleaning"
+            />
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+          <h3 class="filters-title">Categories</h3>
+          <div class="category-chips">
+            <mat-chip-listbox>
+              <mat-chip-option
+                *ngFor="let category of categories"
+                [selected]="selectedCategory === category"
+                (click)="selectCategory(category)"
+                [class.selected]="selectedCategory === category"
+              >
+                {{ category }}
+              </mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid-section">
+      <div class="services-container">
+        <!-- Results Counter -->
+        <div class="results-header">
+          <p class="results-count">
+            Showing {{ filteredServices.length }} 
+            {{ filteredServices.length === 1 ? 'service' : 'services' }}
+          </p>
+        </div>
+
+        <!-- No Results -->
+        <div *ngIf="filteredServices.length === 0" class="no-results">
+          <mat-icon class="no-results-icon">search_off</mat-icon>
+          <h3>No services found</h3>
+          <p>Try adjusting your search or filters</p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-grid" *ngIf="filteredServices.length > 0">
+          <mat-card 
+            *ngFor="let service of filteredServices" 
+            class="service-card"
+          >
+            <mat-card-content>
+              <!-- Icon -->
+              <div 
+                class="service-icon-container" 
+                [style.background-color]="service.bgColor"
+              >
+                <mat-icon 
+                  class="service-icon"
+                  [style.color]="service.iconColor"
+                >
+                  {{ service.icon }}
+                </mat-icon>
+              </div>
+
+              <!-- Category Badge -->
+              <span class="category-badge">{{ service.category }}</span>
+
+              <!-- Title & Description -->
+              <h3 class="service-card-title">{{ service.title }}</h3>
+              <p class="service-card-description">{{ service.description }}</p>
+
+              <!-- Features -->
+              <ul class="service-features">
+                <li *ngFor="let feature of service.features">
+                  <mat-icon class="feature-icon">check_circle</mat-icon>
+                  {{ feature }}
+                </li>
+              </ul>
+
+              <!-- Rating & Price -->
+              <div class="service-meta">
+                <div class="rating">
+                  <mat-icon class="star-icon">star</mat-icon>
+                  <span class="rating-value">{{ service.rating }}</span>
+                  <span class="reviews-count">({{ service.reviewsCount }})</span>
+                </div>
+                <span class="price">{{ service.price }}</span>
+              </div>
+
+              <!-- Actions -->
+              <div class="service-actions">
+                <button 
+                  mat-stroked-button 
+                  class="details-btn"
+                  (click)="viewServiceDetails(service.id)"
+                >
+                  View Details
+                </button>
+                <button 
+                  mat-raised-button 
+                  color="primary"
+                  class="book-btn"
+                  (click)="bookService(service.id)"
+                >
+                  Book Now
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Can't find what you're looking for?</h2>
+        <p class="cta-description">
+          Contact us and we'll help you find the perfect professional for your needs
+        </p>
+        <button mat-raised-button color="primary" class="cta-button">
+          Contact Support
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</div>

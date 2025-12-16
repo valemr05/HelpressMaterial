@@ -1,0 +1,370 @@
+
+.services-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.services-main {
+  flex: 1;
+}
+
+
+.services-hero {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #1a4158 100%);
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+  
+  @media (min-width: 1024px) {
+    padding: 2.5rem 2rem;
+  }
+}
+
+.hero-content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  
+  @media (min-width: 1024px) {
+    font-size: 3.5rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 42rem;
+  margin: 0 auto;
+  
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+  }
+}
+
+.search-section {
+  background-color: white;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  margin-bottom: 2rem;
+  
+  .search-field {
+    width: 100%;
+    max-width: 42rem;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+::ng-deep {
+  .search-field {
+    .mat-mdc-text-field-wrapper {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #d1d5db !important;
+      }
+    }
+    
+    .mat-mdc-form-field.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--primary-color) !important;
+        border-width: 2px !important;
+      }
+    }
+    
+    .mat-mdc-input-element {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+
+.category-filters {
+  .filters-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+}
+
+.category-chips {
+  ::ng-deep {
+    mat-chip-listbox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    mat-chip-option {
+      background-color: #f3f4f6;
+      color: #6b7280;
+      border: 1px solid #e5e7eb;
+      font-weight: 500;
+      transition: all 0.2s;
+      
+      &:hover {
+        background-color: #e5e7eb;
+      }
+      
+      &.selected {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        border-color: var(--primary-color) !important;
+      }
+    }
+  }
+}
+
+
+.services-grid-section {
+  padding: 3rem 1.5rem;
+  background-color: var(--background-light);
+}
+
+.services-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.results-header {
+  margin-bottom: 2rem;
+}
+
+.results-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 1rem;
+  
+  .no-results-icon {
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    color: #6b7280;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  border: 1px solid #e5e7eb;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  mat-card-content {
+    padding: 1.5rem;
+  }
+}
+
+.service-icon-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  
+  .service-icon {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--accent-green-light);
+  color: var(--accent-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.service-card-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    
+    .feature-icon {
+      color: var(--accent-green);
+      font-size: 1rem;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+.service-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  
+  .star-icon {
+    color: #fbbf24;
+    font-size: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .rating-value {
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  
+  .reviews-count {
+    color: #9ca3af;
+    font-size: 0.875rem;
+  }
+}
+
+.price {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.125rem;
+}
+
+.service-actions {
+  display: flex;
+  gap: 0.75rem;
+  
+  button {
+    flex: 1;
+    font-weight: 600;
+  }
+  
+  .details-btn {
+    border-color: var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+    
+    &:hover {
+      background-color: var(--secondary-color) !important;
+      color: white !important;
+    }
+  }
+  
+  .book-btn {
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+
+.cta-section {
+  background-color: var(--accent-green);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
