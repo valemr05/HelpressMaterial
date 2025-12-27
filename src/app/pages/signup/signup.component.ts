@@ -1,14 +1,15 @@
-// signup.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from '../../footer/footer.component';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,6 +23,7 @@ import { FooterComponent } from '../../footer/footer.component';
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
+    MatSnackBarModule,
     FooterComponent
   ],
   templateUrl: './signup.component.html',
@@ -31,17 +33,21 @@ export class SignupComponent {
   signupForm: FormGroup;
   hidePassword = true;
   hideConfirmPassword = true;
+  isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.signupForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]],
-      acceptTerms: [false, [Validators.requiredTrue]]
-    }, {
-      validators: this.passwordMatchValidator
-    });
+      acceptTerms: [false, [Validators.requiredTrue]]  // ← AGREGADO
+    }, { validators: this.passwordMatchValidator });
   }
 
   passwordMatchValidator(form: FormGroup) {
@@ -57,9 +63,29 @@ export class SignupComponent {
 
   onSubmit(): void {
     if (this.signupForm.valid) {
-      console.log('Signup form submitted:', this.signupForm.value);
-      // Aquí iría la lógica de registro
-      // Por ejemplo: this.authService.signup(this.signupForm.value)
+      this.isLoading = true;
+      const { fullName, email, password } = this.signupForm.value;
+
+      this.authService.register(fullName, email, password).subscribe({
+        next: (response: any) => {
+          this.isLoading = false;
+          this.snackBar.open('¡Cuenta creada exitosamente! Por favor inicia sesión.', 'Cerrar', {
+            duration: 4000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+          this.router.navigate(['/login']);
+        },
+        error: (error: any) => {
+          this.isLoading = false;
+          const errorMessage = error.error?.detail || 'Error al crear la cuenta';
+          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+        }
+      });
     } else {
       // Marcar todos los campos como touched para mostrar errores
       Object.keys(this.signupForm.controls).forEach(key => {

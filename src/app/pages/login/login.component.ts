@@ -1,14 +1,15 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-import { FooterComponent } from '../../footer/footer.component';  
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { FooterComponent } from '../../footer/footer.component';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ import { FooterComponent } from '../../footer/footer.component';
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
+    MatSnackBarModule,
     FooterComponent
   ],
   templateUrl: './login.component.html',
@@ -30,8 +32,14 @@ import { FooterComponent } from '../../footer/footer.component';
 export class LoginComponent {
   loginForm: FormGroup;
   hidePassword = true;
+  isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -41,11 +49,30 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log('Login form submitted:', this.loginForm.value);
-      // Aquí iría la lógica de autenticación
-      // Por ejemplo: this.authService.login(this.loginForm.value)
+      this.isLoading = true;
+      const { email, password } = this.loginForm.value;
+
+      this.authService.login(email, password).subscribe({
+        next: (response) => {
+          this.isLoading = false;
+          this.snackBar.open(`¡Bienvenido ${response.user.full_name}!`, 'Cerrar', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          this.isLoading = false;
+          const errorMessage = error.error?.detail || 'Error al iniciar sesión';
+          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+        }
+      });
     } else {
-      // Marcar todos los campos como touched para mostrar errores
       Object.keys(this.loginForm.controls).forEach(key => {
         this.loginForm.get(key)?.markAsTouched();
       });
