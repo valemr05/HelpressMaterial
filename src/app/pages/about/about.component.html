@@ -1,1 +1,152 @@
-<p>about works!</p>
+<!-- about.component.html -->
+<div class="about-page">
+  <app-header></app-header>
+
+  <main class="about-main">
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">About Helpress</h1>
+        <p class="hero-subtitle">
+          Connecting homeowners with trusted professionals since 2020
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <div class="mission-container">
+        <div class="mission-content">
+          <h2 class="section-title">Our Mission</h2>
+          <p class="mission-text">
+            At Helpress, we believe that everyone deserves access to reliable, professional home services. 
+            Our mission is to bridge the gap between homeowners and skilled professionals, making it easier 
+            than ever to maintain, repair, and improve your home.
+          </p>
+          <p class="mission-text">
+            We've built a platform that prioritizes trust, quality, and convenience. Every professional 
+            in our network is carefully vetted, ensuring you receive exceptional service every time.
+          </p>
+        </div>
+        <div class="mission-image">
+          <img 
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop" 
+            alt="Team collaboration"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-card" *ngFor="let stat of stats">
+          <mat-icon class="stat-icon">{{ stat.icon }}</mat-icon>
+          <h3 class="stat-value">{{ stat.value }}</h3>
+          <p class="stat-label">{{ stat.label }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="values-container">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">
+          The principles that guide everything we do
+        </p>
+        
+        <div class="values-grid">
+          <mat-card class="value-card" *ngFor="let value of values">
+            <mat-card-content>
+              <div class="value-icon-container" [style.background-color]="value.color + '20'">
+                <mat-icon class="value-icon" [style.color]="value.color">
+                  {{ value.icon }}
+                </mat-icon>
+              </div>
+              <h3 class="value-title">{{ value.title }}</h3>
+              <p class="value-description">{{ value.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+      <div class="story-container">
+        <div class="story-image">
+          <img 
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop" 
+            alt="Office workspace"
+          />
+        </div>
+        <div class="story-content">
+          <h2 class="section-title">Our Story</h2>
+          <p class="story-text">
+            Helpress was born from a simple frustration: finding reliable home service professionals 
+            shouldn't be so difficult. In 2020, our founder Sarah Johnson experienced this firsthand 
+            when a simple plumbing issue turned into a nightmare of unreliable contractors.
+          </p>
+          <p class="story-text">
+            That experience sparked an idea. What if there was a platform that thoroughly vetted 
+            professionals, made booking services seamless, and ensured quality every step of the way? 
+            Today, Helpress serves thousands of homeowners and connects them with hundreds of skilled 
+            professionals across multiple service categories.
+          </p>
+          <p class="story-text">
+            We're proud of how far we've come, but we're just getting started. Our vision is to become 
+            the most trusted home services platform, making home maintenance stress-free for everyone.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="team-container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle">
+          The passionate people behind Helpress
+        </p>
+        
+        <div class="team-grid">
+          <mat-card class="team-card" *ngFor="let member of team">
+            <div class="team-image-container">
+              <img 
+                [src]="member.image" 
+                [alt]="member.name"
+                class="team-image"
+              />
+            </div>
+            <mat-card-content>
+              <h3 class="team-name">{{ member.name }}</h3>
+              <p class="team-role">{{ member.role }}</p>
+              <p class="team-bio">{{ member.bio }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Get Started?</h2>
+        <p class="cta-description">
+          Join thousands of satisfied homeowners who trust Helpress for their home service needs
+        </p>
+        <div class="cta-buttons">
+          <button mat-raised-button color="primary" class="cta-button">
+            Find a Professional
+          </button>
+          <button mat-stroked-button class="cta-button-secondary">
+            Become a Pro
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</div>
